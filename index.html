@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section>	
+						<h2>Event loop Javascript</h2>
+					</section>
+					<section>
+						<img src="./img/1.svg" width="900" height="650">
+					</section>
+				</section>
+				<section>
+					<section>
+					<pre><code data-line-numbers data-ln-start-from="0" style="max-height: 550px"><script type="text/template">
+				function first() {
+					console.log('First');
+				}
+				function second() {
+					setTimeout(() => console.log('Second'), 0);
+				}
+				function third() {
+					Promise.resolve().then(() => console.log('Third'));
+				}
+				function fourth() {
+					console.log('Four');
+				}
+				
+				first();
+				second();
+				third();
+				fourth();
+					</script></code></pre>
+					</section>
+					<section>
+						<img src="./img/Console.png" width="1100" height="400">
+					</section>
+				</section>
+				<section>
+					<section style="top:-120px!important"><img src="./img/3.svg" width="1100" height="650"></section>
+					<section><img src="./img/first.svg" width="1100" height="650"></section>
+					<section><img src="./img/timeout1.svg" width="1100" height="650"></section>
+					<section><img src="./img/timeout2.svg" width="1100" height="650"></section>
+					<section><img src="./img/promise1.svg" width="1100" height="650"></section>
+					<section><img src="./img/promise2.svg" width="1100" height="650"></section>
+					<section><img src="./img/fourth.svg" width="1100" height="650"></section>
+					<section><img src="./img/micro.svg" width="1100" height="650"></section>
+					<section><img src="./img/micro1.svg" width="1100" height="650"></section>
+					<section><img src="./img/last.svg" width="1100" height="650"></section>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
